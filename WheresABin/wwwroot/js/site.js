@@ -5,6 +5,20 @@ $(document).ready(function () {
 
 function initMap() {
 
+    const iconBase =
+        "https://developers.google.com/maps/documentation/javascript/examples/full/images/";
+    var icons = {
+        dog: {
+            icon: iconBase + 'beachflag.png'
+        },
+        refuse: {
+            icon: iconBase + 'library_maps.png'
+        },
+        recycle: {
+            icon: iconBase + 'info-i_maps.png'
+        }
+    };
+
     //Map options
     var options = {
         zoom: 8,
@@ -23,7 +37,7 @@ function initMap() {
     var markers = [
         {
             coords: { lat: 50.2632, lng: -5.0510 },
-            iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            iconImage: icons.dog.icon,
             content: '<div id="content">' +
                 '<div id="siteNotice">' +
                 "</div>" +
@@ -47,10 +61,12 @@ function initMap() {
         },
         {
             coords: { lat: 50.2195, lng: -4.8910 },
+            iconImage: icons.refuse.icon,
             content: '<h1>Portloe</h1>'
         },
         {
-            coords: { lat: 50.2330, lng: -5.2267 }
+            coords: { lat: 50.2330, lng: -5.2267 },
+            iconImage: icons.recycle.icon
         }
     ];
 
@@ -121,7 +137,6 @@ function initMap() {
             shouldFocus: false,
         });
     });
-
 
 
     ////Add marker
