@@ -1,19 +1,19 @@
 ﻿
 
-
 let map, infoWindow;
 
 function initMap() {
 
     map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: -34.397, lng: 150.644 },
-        zoom: 8,
+        zoom: 10,
     });
 
     infoWindow = new google.maps.InfoWindow();
 
     const iconBase =
         "https://developers.google.com/maps/documentation/javascript/examples/full/images/";
+
     var icons = {
         dog: {
             icon: iconBase + 'beachflag.png'
@@ -68,12 +68,6 @@ function initMap() {
         addMarker(markers[i]);
     }
 
-    //Listen for click on the map 
-    google.maps.event.addListener(map, 'click', function (event) {
-        //Add marker
-        addMarker({ coords: event.latLng });
-    });
-
     const locationButton = document.createElement("button");
 
     locationButton.textContent = "Pan to Current Location";
@@ -103,6 +97,16 @@ function initMap() {
             handleLocationError(false, infoWindow, map.getCenter());
         }
     });
+
+    //Listen for click on the map 
+    google.maps.event.addListener(map, 'click', function (event) {
+        //Add marker
+        addMarker({
+            coords: event.latLng,
+            shouldFocus: true,
+        });
+    });
+
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -115,13 +119,14 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.open(map);
 }
 
+
 //Add marker function 
 function addMarker(props) {
     var marker = new google.maps.Marker({
         position: props.coords,
         map: map,
-        animation: google.maps.Animation.DROP
-        //icon: props.iconImage
+        animation: google.maps.Animation.DROP,
+        icon: props.iconImage
     });
     //Check for custom icon
     if (props.iconImage) {
@@ -139,7 +144,7 @@ function addMarker(props) {
             infoWindow.open({
                 anchor: marker,
                 map,
-                shouldFocus: false
+                shouldFocus: true
             });
         })
     }
