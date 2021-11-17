@@ -4,15 +4,21 @@ let map, infoWindow;
 
 function initMap() {
 
+    const locationButton = document.createElement("button");
+    const iconBase = "https://developers.google.com/maps/documentation/javascript/examples/full/images/";
+
+    //Create map start location
     map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: -34.397, lng: 150.644 },
         zoom: 10,
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+            style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+            mapTypeIds: ["roadmap", "terrain"],
+        }
     });
 
     infoWindow = new google.maps.InfoWindow();
-
-    const iconBase =
-        "https://developers.google.com/maps/documentation/javascript/examples/full/images/";
 
     var icons = {
         dog: {
@@ -26,7 +32,7 @@ function initMap() {
         }
     };
 
-     // Array of markers
+    // Array of markers
     var markers = [
         {
             coords: { lat: 50.2632, lng: -5.0510 },
@@ -63,13 +69,10 @@ function initMap() {
         }
     ];
 
-      //Loop through markers
+    //Loop through markers
     for (var i = 0; i < markers.length; i++) {
         addMarker(markers[i]);
     }
-
-    const locationButton = document.createElement("button");
-
     locationButton.textContent = "Pan to Current Location";
     locationButton.classList.add("custom-map-control-button");
     map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);

@@ -1,22 +1,14 @@
 ﻿
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Add Map</title>
-
-    <link rel="stylesheet" type="text/css" href="./style.css" />
-    <script src="./index.js"></script>
-</head>
-<body>
-    <h3>My Google Maps Demo</h3>
-    <!--The div element for the map -->
-    <div id="map"></div>
-    <div id="legend"><h3>Legend</h3></div>
-
-    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly"
-            async></script>
-</body>
-</html>
+<h3>My Google Maps Demo</h3>
+<!--The div element for the map -->
+<div id="map"></div>
+<select id="type" onchange="filterMarkers(this.value);">
+    <option value="">Please select category</option>
+    <option value="second">second</option>
+    <option value="car">car</option>
+    <option value="third">third</option>
+</select>
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly"
+        async></script>
 
