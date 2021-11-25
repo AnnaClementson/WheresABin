@@ -22,9 +22,6 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="Views/Location">Find a bin</a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -34,19 +31,15 @@
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
-       
     </div>
-
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2021 - WheresABin - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
-     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0wibD-CET6sY1kpQj56qF_tMby_xX81g&callback=initMap"></script>
+    @*<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0wibD-CET6sY1kpQj56qF_tMby_xX81g&callback=initMap"></script>*@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
