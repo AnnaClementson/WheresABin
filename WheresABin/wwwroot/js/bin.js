@@ -4,7 +4,7 @@ const bin = [
         "X": 60037,
         "Y": 34563,
         "OBJECTID": 1,
-        "CATEGORY": "Waste Bin",
+        "CATEGORY": "Black Bin",
         "NAME": "Bin number 1",
         "ADDRESS": "2 west avenue",
         "WHATTHREEWORDS": "Yellow mark spoon",

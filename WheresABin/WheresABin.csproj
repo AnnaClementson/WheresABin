@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <Content Remove="Pages\Views\Location.cshtml" />
-    <Content Remove="wwwroot\js\site.js" />
   </ItemGroup>
 
   <ItemGroup>
