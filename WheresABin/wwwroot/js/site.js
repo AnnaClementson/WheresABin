@@ -25,9 +25,11 @@ function initMap() {
             new_icon = "http://maps.google.com/mapfiles/kml/paddle/grn-blank.png";
         //   new_icon = iconBase + 'beachflag.png';
         else if (bin[i].CATEGORY == "Dog Bin")
-            new_icon = "http://maps.google.com/mapfiles/kml/paddle/ylw-blank.png";
-        else if (bin[i].CATEGORY == "Black Bin")
             new_icon = "http://maps.google.com/mapfiles/kml/paddle/pink-blank.png";
+        else if (bin[i].CATEGORY == "Black Bin")
+            new_icon = "http://maps.google.com/mapfiles/kml/paddle/ylw-blank.png";
+         
+     
 
         // Create a marker based on the array in bin.js
         new_marker = new google.maps.Marker({
@@ -59,11 +61,16 @@ $(document).ready(function () {
     var checkedBoxes = []
 
     $('#submitBinFilterBtn').click(function () {
+        if (checkedBoxes > 0) {
+            checkedBoxes = 0;
+        }
         $("input:checkbox[name=bins]:checked").each(function () {
             checkedBoxes.push($(this).val());
         });
         filterBins(checkedBoxes);
     });
+
+    //tomorrow for each check box checked in the list set markers active 
 
     function filterBins(checkedBoxes) {
         //loop through the elements of the marker array and only show selected category

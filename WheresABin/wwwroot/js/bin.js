@@ -1,8 +1,6 @@
 ﻿
 const bin = [
     {
-        "X": 60037,
-        "Y": 34563,
         "OBJECTID": 1,
         "CATEGORY": "Black Bin",
         "NAME": "Bin number 1",
@@ -13,8 +11,6 @@ const bin = [
         "LATITUDE": 50.376289
     },
     {
-        "X": 32253,
-        "Y": 34343,
         "OBJECTID": 2,
         "CATEGORY": "Dog Bin",
         "NAME": "Bin number 2",
@@ -25,8 +21,6 @@ const bin = [
         "LATITUDE": 51.509865
     },
     {
-        "X": 45642,
-        "Y": 34443,
         "OBJECTID": 3,
         "CATEGORY": "Green Bin",
         "NAME": "Bin number 2",
@@ -35,5 +29,15 @@ const bin = [
         "COMMENTS": "This is a green bin",
         "LONGITUDE": -5.0610,
         "LATITUDE": 50.2452,
+    },
+    {
+        "OBJECTID": 4,
+        "CATEGORY": "Black Bin",
+        "NAME": "Holsworthy black bin",
+        "ADDRESS": "2 address road",
+        "WHATTHREEWORDS": "handbook.advancing.shrug",
+        "COMMENTS": "This is an empty black bin",
+        "LONGITUDE": -4.3622211,
+        "LATITUDE": 50.8129763,
     }
 ]
