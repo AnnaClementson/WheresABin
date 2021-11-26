@@ -4,7 +4,44 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row">
+    <div class="col-sm-12 col-md-8">
+        <h3 class="text-center">Wheres a bin?</h3>
+        <div id="map"></div>
+    </div>
+    <div class="col-sm-12 col-md-4">
+        <div class="form-check">
+            <input class="form-check-input" name="bins" type="checkbox" value="Dog Bin" id="dogBinCheckbox">
+            <label class="form-check-label" for="defaultCheck1">
+                Dog bins
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" name="bins" type="checkbox" value="Black Bin" id="blackBinCheckbox">
+            <label class="form-check-label" for="defaultCheck2">
+                Black bins
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" name="bins" type="checkbox" value="Green Bin" id="greenBinCheckbox">
+            <label class="form-check-label" for="defaultCheck2">
+                Green bins
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" name="bins" type="checkbox" value="Glass Bin" id="glassBinCheckbox">
+            <label class="form-check-label" for="defaultCheck2">
+                Glass bins
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" name="bins" type="checkbox" value="Plastic Bin" id="plasticBinCheckbox">
+            <label class="form-check-label" for="defaultCheck2">
+                Plastic bins
+            </label>
+        </div>
+        <button id="submitBinFilterBtn">Filter</button>
+    </div>
 </div>
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+
