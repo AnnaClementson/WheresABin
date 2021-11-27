@@ -28,8 +28,8 @@ function initMap() {
             new_icon = "http://maps.google.com/mapfiles/kml/paddle/pink-blank.png";
         else if (bin[i].CATEGORY == "Black Bin")
             new_icon = "http://maps.google.com/mapfiles/kml/paddle/ylw-blank.png";
-         
-     
+
+
 
         // Create a marker based on the array in bin.js
         new_marker = new google.maps.Marker({
@@ -58,19 +58,13 @@ function initMap() {
 
 $(document).ready(function () {
 
-    var checkedBoxes = []
-
-    $('#submitBinFilterBtn').click(function () {
-        if (checkedBoxes > 0) {
-            checkedBoxes = 0;
-        }
-        $("input:checkbox[name=bins]:checked").each(function () {
-            checkedBoxes.push($(this).val());
-        });
-        filterBins(checkedBoxes);
+    $("#submitBinFilterBtn").click(function (event) {
+        event.preventDefault();
+        var checkedBoxes = $("input:checkbox[name=bins]:checked").map(function () {
+            return $(this).val();
+        }).get(); 
+        filterBins(checkedBoxes)
     });
-
-    //tomorrow for each check box checked in the list set markers active 
 
     function filterBins(checkedBoxes) {
         //loop through the elements of the marker array and only show selected category
@@ -83,4 +77,12 @@ $(document).ready(function () {
         }
     }
 
+    //Reset filter button, shows all bin types 
+    document.getElementById('showAllBinFilterBtn').onclick = showAllMarkers;
+
 });
+
+
+function showAllMarkers() {
+    for (i = 0; i < markers.length; i++) markers[i].setMap(map);
+}
