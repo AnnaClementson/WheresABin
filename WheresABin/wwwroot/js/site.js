@@ -25,6 +25,7 @@ function initMap() {
                     const pos = {
                         lat: position.coords.latitude,
                         lng: position.coords.longitude,
+                        zoom: 10
                     };
 
                     infoWindow.setPosition(pos);
