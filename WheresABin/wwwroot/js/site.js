@@ -101,13 +101,24 @@ $(document).ready(function () {
     function filterBins(checkedBoxes) {
         //loop through the elements of the marker array and only show selected category
         for (i = 0; i < markers.length; i++) {
-            if (markers[i].CATEGORY == checkedBoxes)
+            if (checkedBoxes.includes(markers[i].CATEGORY))
                 markers[i].setMap(map);
             else
                 //hide other markers
                 markers[i].setMap(null);
         }
     }
+
+    //function filterBins(checkedBoxes) {
+    //    //loop through the elements of the marker array and only show selected category
+    //    for (i = 0; i < markers.length; i++) {
+    //        if (markers[i].CATEGORY === checkedBoxes)
+    //            markers[i].setMap(map);
+    //        else
+    //            //hide other markers
+    //            markers[i].setMap(null);
+    //    }
+    //}
 
     //Reset filter button, shows all bin types 
     document.getElementById('showAllBinFilterBtn').onclick = showAllMarkers;
