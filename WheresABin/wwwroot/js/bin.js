@@ -9,7 +9,8 @@ const bin = [
         "WHATTHREEWORDS": "Yellow mark spoon",
         "COMMENTS": "This is a black bin",
         "LONGITUDE": -4.143841,
-        "LATITUDE": 50.376289
+        "LATITUDE": 50.376289,
+        "IMAGE": ""
     },
     {
         "OBJECTID": 2,
@@ -20,18 +21,22 @@ const bin = [
         "WHATTHREEWORDS": "Green fox dread",
         "COMMENTS": "This is a dog bin",
         "LONGITUDE": -0.118092,
-        "LATITUDE": 51.509865
+        "LATITUDE": 51.509865,
+        "IMAGE": ""
+
     },
     {
         "OBJECTID": 3,
         "CATEGORY": "Green Bin",
-        "NAME": "Bin number 2",
+        "NAME": "Bin number 3",
         "ADDRESS": "2 bark road",
         "VISIBLE": false,
         "WHATTHREEWORDS": "Yell fox dread",
         "COMMENTS": "This is a green bin",
         "LONGITUDE": -5.0610,
         "LATITUDE": 50.2452,
+        "IMAGE": ""
+
     },
     {
         "OBJECTID": 4,
@@ -43,5 +48,7 @@ const bin = [
         "COMMENTS": "This is an empty black bin",
         "LONGITUDE": -4.3622211,
         "LATITUDE": 50.8129763,
+        "IMAGE":""
+
     }
 ]
