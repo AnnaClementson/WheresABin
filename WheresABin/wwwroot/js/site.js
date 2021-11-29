@@ -11,7 +11,7 @@ function initMap() {
         center: { lat: 50.376289, lng: -4.143841 },
         zoom: 10,
     });
-    
+
     infoWindow = new google.maps.InfoWindow();
 
     locationButton.textContent = "Pan to Current Location";
@@ -46,7 +46,9 @@ function initMap() {
 
     marker_clicked = function () {
         infoWindow.close();
-        infoWindow.setContent(this.NAME + "</br></br>" + this.CATEGORY);
+        //What is shown in the info window
+        infoWindow.setContent(this.NAME + "</br></br>" + this.CATEGORY + "</br></br>" +
+            this.ADDRESS + "</br></br>" + this.COMMENTS + "</br></br>");
         infoWindow.open(map, this);
     }
 
@@ -79,6 +81,8 @@ function initMap() {
         //store the name of the bin as a property of the marker object
         new_marker.NAME = bin[i].NAME;
         new_marker.CATEGORY = bin[i].CATEGORY;
+        new_marker.ADDRESS = bin[i].ADDRESS;
+        new_marker.COMMENTS = bin[i].COMMENTS;
 
         //info window open when marker is clicked
         new_marker.addListener('click', marker_clicked);
@@ -94,20 +98,31 @@ $(document).ready(function () {
         event.preventDefault();
         var checkedBoxes = $("input:checkbox[name=bins]:checked").map(function () {
             return $(this).val();
-        }).get(); 
+        }).get();
         filterBins(checkedBoxes)
     });
 
     function filterBins(checkedBoxes) {
         //loop through the elements of the marker array and only show selected category
         for (i = 0; i < markers.length; i++) {
-            if (markers[i].CATEGORY == checkedBoxes)
+            if (checkedBoxes.includes(markers[i].CATEGORY))
                 markers[i].setMap(map);
             else
                 //hide other markers
                 markers[i].setMap(null);
         }
     }
+
+    //function filterBins(checkedBoxes) {
+    //    //loop through the elements of the marker array and only show selected category
+    //    for (i = 0; i < markers.length; i++) {
+    //        if (markers[i].CATEGORY === checkedBoxes)
+    //            markers[i].setMap(map);
+    //        else
+    //            //hide other markers
+    //            markers[i].setMap(null);
+    //    }
+    //}
 
     //Reset filter button, shows all bin types 
     document.getElementById('showAllBinFilterBtn').onclick = showAllMarkers;

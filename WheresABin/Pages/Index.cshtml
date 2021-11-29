@@ -9,8 +9,8 @@
         <h3 class="text-center">Find a bin</h3>
         <div id="map"></div>
     </div>
-    <div class="col-sm-12 col-md-2 justify-content-center">
-        <h2>Filter</h2>
+    <div class="col-sm-12 col-md-2 justify-content-center" id="filter">
+        <h2 class="text-center">Filter</h2>
         <div class="form-check p-0">
             <input class="checkbox" name="bins" type="checkbox" value="Dog Bin" id="dogBinCheckbox">
             <label class="form-check-label" for="defaultCheck1">
@@ -41,8 +41,8 @@
                 Plastic bins
             </label>
         </div>
-        <button id="submitBinFilterBtn btn btn-primary">Filter</button>
-        <button id="showAllBinFilterBtn">Reset</button>
+        <button id="submitBinFilterBtn" class="btn-sm btn-primary">Filter</button>
+        <button id="showAllBinFilterBtn" class="btn-sm btn-secondary">Reset</button>
     </div>
 </div>
 <!-- Async script executes immediately and must be after any DOM elements used in callback. -->

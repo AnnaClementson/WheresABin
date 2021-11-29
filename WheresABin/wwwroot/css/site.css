@@ -22,6 +22,13 @@ body {
     width: 100%;
 }
 
+#filter {
+    max-width: 100%;
+    border: solid 2px black;
+    border-radius: 25px;
+    padding: 20px;
+}
+
 .custom-map-control-button {
     background-color: #fff;
     border: 0;
