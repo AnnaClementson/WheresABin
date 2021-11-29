@@ -4,6 +4,8 @@ var markers = [];
 
 function initMap() {
 
+    const directionsRenderer = new google.maps.DirectionsRenderer();
+    const directionsService = new google.maps.DirectionsService();
     const locationButton = document.createElement("button");
 
     //Create map start location
@@ -11,6 +13,15 @@ function initMap() {
         center: { lat: 50.376289, lng: -4.143841 },
         zoom: 10,
     });
+
+    directionsRenderer.setMap(map);
+
+    const onChangeHandler = function () {
+        calculateAndDisplayRoute(directionsService, directionsRenderer);
+    };
+
+    document.getElementById("start").addEventListener("change", onChangeHandler);
+    document.getElementById("end").addEventListener("change", onChangeHandler);
 
     infoWindow = new google.maps.InfoWindow();
 
@@ -143,3 +154,31 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     );
     infoWindow.open(map);
 }
+
+function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+    directionsService
+        .route({
+            origin: {
+                query: document.getElementById("start").value,
+            },
+            destination: {
+                query: document.getElementById("end").value,
+            },
+            travelMode: google.maps.TravelMode.DRIVING,
+        })
+        .then((response) => {
+            directionsRenderer.setDirections(response);
+        })
+        .catch((e) => window.alert("Directions request failed due to " + status));
+}
+
+//create autocomplete objects for all inputs
+var options = {
+    types: ['(cities)']
+}
+
+var input1 = document.getElementById("start");
+var autocomplete1 = new google.maps.places.Autocomplete(input1, options);
+
+var input2 = document.getElementById("end");
+var autocomplete2 = new google.maps.places.Autocomplete(input2, options);
