@@ -45,3 +45,7 @@ body {
 .custom-map-control-button:hover {
     background: #ebebeb;
 }
+
+.form-control { 
+    width: 80%;
+}

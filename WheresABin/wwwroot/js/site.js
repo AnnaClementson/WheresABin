@@ -7,6 +7,19 @@ function initMap() {
     const directionsRenderer = new google.maps.DirectionsRenderer();
     const directionsService = new google.maps.DirectionsService();
     const locationButton = document.createElement("button");
+    var inputOrigin = document.getElementById("origin");
+    var inputDestination = document.getElementById("destination");
+    const options = {
+        fields: ["formatted_address", "geometry", "name"],
+        strictBounds: false,
+        types: ["establishment"],
+    };
+    const autocomplete = new google.maps.places.Autocomplete(inputOrigin, options);
+
+    const infowindow = new google.maps.InfoWindow();
+    const infowindowContent = document.getElementById("infowindow-content");
+
+    infowindow.setContent(infowindowContent);
 
     //Create map start location
     map = new google.maps.Map(document.getElementById("map"), {
@@ -16,12 +29,7 @@ function initMap() {
 
     directionsRenderer.setMap(map);
 
-    const onChangeHandler = function () {
-        calculateAndDisplayRoute(directionsService, directionsRenderer);
-    };
-
-    document.getElementById("start").addEventListener("change", onChangeHandler);
-    document.getElementById("end").addEventListener("change", onChangeHandler);
+    calculateAndDisplayRoute(directionsService, directionsRenderer);
 
     infoWindow = new google.maps.InfoWindow();
 
@@ -124,23 +132,14 @@ $(document).ready(function () {
         }
     }
 
-    //function filterBins(checkedBoxes) {
-    //    //loop through the elements of the marker array and only show selected category
-    //    for (i = 0; i < markers.length; i++) {
-    //        if (markers[i].CATEGORY === checkedBoxes)
-    //            markers[i].setMap(map);
-    //        else
-    //            //hide other markers
-    //            markers[i].setMap(null);
-    //    }
-    //}
-
     //Reset filter button, shows all bin types 
     document.getElementById('showAllBinFilterBtn').onclick = showAllMarkers;
 
+
+
 });
 
-
+//Reset the marker filter selection 
 function showAllMarkers() {
     for (i = 0; i < markers.length; i++) markers[i].setMap(map);
 }
@@ -155,15 +154,14 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.open(map);
 }
 
+
+//Calculate directions from the origin and destination
 function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+
     directionsService
         .route({
-            origin: {
-                query: document.getElementById("start").value,
-            },
-            destination: {
-                query: document.getElementById("end").value,
-            },
+            origin: { lat: 37.77, lng: -122.447 },
+            destination: { lat: 37.768, lng: -122.511 },
             travelMode: google.maps.TravelMode.DRIVING,
         })
         .then((response) => {
@@ -172,13 +170,4 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
         .catch((e) => window.alert("Directions request failed due to " + status));
 }
 
-//create autocomplete objects for all inputs
-var options = {
-    types: ['(cities)']
-}
 
-var input1 = document.getElementById("start");
-var autocomplete1 = new google.maps.places.Autocomplete(input1, options);
-
-var input2 = document.getElementById("end");
-var autocomplete2 = new google.maps.places.Autocomplete(input2, options);
