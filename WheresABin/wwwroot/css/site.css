@@ -23,9 +23,7 @@ body {
 }
 
 #filter {
-    max-width: 100%;
-    border: solid 2px black;
-    border-radius: 25px;
+    max-width: 80%;
     padding: 20px;
 }
 
