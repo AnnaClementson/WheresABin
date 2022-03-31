@@ -4,7 +4,74 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row m-0 p-0">
+    <div class="col-sm-12 col-md-10">
+        <h3 class="text-center">Find a bin</h3>
+        <div id="map"></div>
+    </div>
+    <div class="col-sm-12 col-md-2 justify-content-center" id="filter">
+        <h2 class="text-center">Filter</h2>
+        <div class="form-check p-0">
+            <input class="checkbox" name="bins" type="checkbox" value="Dog Bin" id="dogBinCheckbox">
+            <label class="form-check-label" for="defaultCheck1">
+                Dog bins
+            </label>
+        </div>
+        <div class="form-check p-0">
+            <input class="checkbox" name="bins" type="checkbox" value="Black Bin" id="blackBinCheckbox">
+            <label class="form-check-label" for="defaultCheck2">
+                Black bins
+            </label>
+        </div>
+        <div class="form-check p-0">
+            <input class="checkbox" name="bins" type="checkbox" value="Green Bin" id="greenBinCheckbox">
+            <label class="form-check-label" for="defaultCheck2">
+                Green bins
+            </label>
+        </div>
+        <div class="form-check p-0">
+            <input class="checkbox" name="bins" type="checkbox" value="Glass Bin" id="glassBinCheckbox">
+            <label class="form-check-label" for="defaultCheck2">
+                Glass bins
+            </label>
+        </div>
+        <div class="form-check p-0">
+            <input class="checkbox" name="bins" type="checkbox" value="Plastic Bin" id="plasticBinCheckbox">
+            <label class="form-check-label" for="defaultCheck2">
+                Plastic bins
+            </label>
+        </div>
+        <button id="submitBinFilterBtn" class="btn-sm btn-primary">Filter</button>
+        <button id="showAllBinFilterBtn" class="btn-sm btn-secondary">Reset</button>
+    </div>
 </div>
+<row>
+    <div class="col-sm-12 col-md-6 justify-content-center m-3">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="from" class="control-label"><i class="far fa-dot-circle"></i></label>
+                <input type="text" id="originInput" placeholder="Enter an origin location" class="form-control">
+                <label for="currentLocation" class="control-label"><i class="far fa-dot-circle"></i></label>
+                <button id="currentLocation" class="form-control">Pan to current location</button>
+
+            </div>
+            <div class="form-group">
+                <label for="to" class="col-xs-2 control-label"><i class="fas fa-map-marker-alt"></i></label>
+                <div class="col-xs-4">
+                    <input type="text" id="destinationInput" placeholder="Enter a destination location" class="form-control">
+                </div>
+            </div>
+            <div id="modeSelector">
+                <input type="radio"
+                       name="type"
+                       id="changemode-walking"
+                       checked="checked" />
+                <label for="changemode-walking">Walking</label>
+                <input type="radio" name="type" id="changemode-transit" />
+                <label for="changemode-transit">Transit</label>
+                <input type="radio" name="type" id="changemode-driving" />
+                <label for="changemode-driving">Driving</label>
+            </div>
+        </form>
+    </div>
+</row>

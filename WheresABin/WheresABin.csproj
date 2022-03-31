@@ -7,8 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\Views\Location.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\Views\Location.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Model\" />
     <Folder Include="Controller\" />
+    <Folder Include="Pages\Views\" />
+    <Folder Include="wwwroot\img\icons\" />
   </ItemGroup>
 
 </Project>
