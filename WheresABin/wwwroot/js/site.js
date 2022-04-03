@@ -62,7 +62,6 @@ function initMap() {
         }
     });
 
-
     marker_clicked = function () {
         infoWindow.close();
         //What is shown in the info window
@@ -81,7 +80,6 @@ function initMap() {
             new_icon = "http://maps.google.com/mapfiles/kml/paddle/pink-blank.png";
         else if (bin[i].CATEGORY == "Black Bin")
             new_icon = "http://maps.google.com/mapfiles/kml/paddle/ylw-blank.png";
-
 
 
         // Create a marker based on the array in bin.js
@@ -159,8 +157,6 @@ $(document).ready(function () {
     //Reset filter button, shows all bin types 
     document.getElementById('showAllBinFilterBtn').onclick = showAllMarkers;
 
-
-
 });
 
 //Reset the marker filter selection 
@@ -179,19 +175,19 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 
-//Calculate directions from the origin and destination
-function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+////Calculate directions from the origin and destination
+//function calculateAndDisplayRoute(directionsService, directionsRenderer) {
 
-    directionsService
-        .route({
-            origin: { lat: 37.77, lng: -122.447 },
-            destination: { lat: 37.768, lng: -122.511 },
-            travelMode: google.maps.TravelMode.DRIVING,
-        })
-        .then((response) => {
-            directionsRenderer.setDirections(response);
-        })
-        .catch((e) => window.alert("Directions request failed due to " + status));
-}
+//    directionsService
+//        .route({
+//            origin: { lat: 37.77, lng: -122.447 },
+//            destination: { lat: 37.768, lng: -122.511 },
+//            travelMode: google.maps.TravelMode.DRIVING,
+//        })
+//        .then((response) => {
+//            directionsRenderer.setDirections(response);
+//        })
+//        .catch((e) => window.alert("Directions request failed due to " + status));
+//}
 
 
