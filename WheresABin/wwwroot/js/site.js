@@ -4,11 +4,9 @@ var markers = [];
 
 function initMap() {
 
-    const directionsRenderer = new google.maps.DirectionsRenderer();
-    const directionsService = new google.maps.DirectionsService();
     const locationButton = document.createElement("button");
     var inputOrigin = document.getElementById("origin");
-    var inputDestination = document.getElementById("destination");
+  //  var inputDestination = document.getElementById("destination");
     const options = {
         fields: ["formatted_address", "geometry", "name"],
         strictBounds: false,
@@ -27,12 +25,8 @@ function initMap() {
         zoom: 10,
     });
 
-    directionsRenderer.setMap(map);
-
-    calculateAndDisplayRoute(directionsService, directionsRenderer);
-
     infoWindow = new google.maps.InfoWindow();
-
+    //Pan to current location button set on google maps 
     locationButton.textContent = "Pan to Current Location";
     locationButton.classList.add("custom-map-control-button");
     map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
@@ -44,7 +38,7 @@ function initMap() {
                     const pos = {
                         lat: position.coords.latitude,
                         lng: position.coords.longitude,
-                        zoom: 10
+                        zoom: 200
                     };
 
                     infoWindow.setPosition(pos);
@@ -121,7 +115,7 @@ function initMap() {
         map.fitBounds(place.geometry.viewport);
     } else {
         map.setCenter(place.geometry.location);
-        map.setZoom(17);
+        map.setZoom(150);
     }
 
     marker.setPosition(place.geometry.location);
@@ -173,21 +167,3 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     );
     infoWindow.open(map);
 }
-
-
-////Calculate directions from the origin and destination
-//function calculateAndDisplayRoute(directionsService, directionsRenderer) {
-
-//    directionsService
-//        .route({
-//            origin: { lat: 37.77, lng: -122.447 },
-//            destination: { lat: 37.768, lng: -122.511 },
-//            travelMode: google.maps.TravelMode.DRIVING,
-//        })
-//        .then((response) => {
-//            directionsRenderer.setDirections(response);
-//        })
-//        .catch((e) => window.alert("Directions request failed due to " + status));
-//}
-
-
