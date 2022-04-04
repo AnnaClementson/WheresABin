@@ -38,7 +38,7 @@ function initMap() {
                     const pos = {
                         lat: position.coords.latitude,
                         lng: position.coords.longitude,
-                        zoom: 200
+                        zoom: 450
                     };
 
                     infoWindow.setPosition(pos);
@@ -115,7 +115,7 @@ function initMap() {
         map.fitBounds(place.geometry.viewport);
     } else {
         map.setCenter(place.geometry.location);
-        map.setZoom(150);
+        map.setZoom(450);
     }
 
     marker.setPosition(place.geometry.location);
