@@ -27,6 +27,10 @@ body {
     padding: 20px;
 }
 
+#binResultPanel {
+    border-top: 1px solid darkgray;
+}
+
 .custom-map-control-button {
     background-color: #fff;
     border: 0;
